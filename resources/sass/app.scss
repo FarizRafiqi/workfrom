@@ -1,0 +1,22 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Inter');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+.card-nearest-space {
+    width: 18rem;
+}
+
+.card-nearest-space > div:first-child, .img-building {
+    height: 250px;
+}
+
+// Style halaman building
+.card-building {
+    width: 20rem;
+}
