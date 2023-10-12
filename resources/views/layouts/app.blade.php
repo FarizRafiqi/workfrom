@@ -14,7 +14,11 @@
     <link href="https://fonts.bunny.net/css?family=Inter" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+    <script src="{{ asset('build/assets/app-c75e0372.js') }}" defer></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('build/assets/app-faeac595.css') }}">
     @stack('styles')
 </head>
 <body>
