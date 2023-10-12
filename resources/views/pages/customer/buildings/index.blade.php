@@ -33,116 +33,30 @@
                     </form>
                 </header>
                 <div class="row py-4 px-4 gy-4">
-                    <div class="col">
-                        <div class="card card-building bg-white">
-                            <a href="#" class="text-decoration-none text-dark">
-                                <div class="overflow-hidden img-building">
-                                    <img src="https://source.unsplash.com/320x250?building"
-                                         class="card-img-top img-fluid" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-secondary">
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        4.1/5 (13 Reviews)
-                                    </p>
-                                    <h5 class="card-title fw-bold">Clapham</h5>
-                                    <p class="card-text">
-                                        Komp. Ruko Centre Point Medan Jalan Timor Blok G No. III/IV 2nd Floor, Gang
-                                        Buntu, Medan Timur, Medan City, North Sumatra 20231
-                                    </p>
-                                </div>
-                            </a>
+                    @foreach($buildings as $building)
+                        <div class="col">
+                            <div class="card card-building bg-white">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <div class="overflow-hidden img-building">
+                                        <img
+                                                src="{{ $building->images[0]->image ?? 'https://source.unsplash.com/320x250?building+' . $loop->index }}"
+                                                class="card-img-top img-fluid"
+                                                alt="{{ count($building->images) > 0 ? $building->images[0]->image : '' }}">
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="text-secondary">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            4.1/5 (13 Reviews)
+                                        </p>
+                                        <h5 class="card-title fw-bold">{{ $building->name }}</h5>
+                                        <p class="card-text">
+                                            {{ $building->address }}
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card card-building bg-white">
-                            <a href="" class="text-decoration-none text-dark">
-                                <div class="overflow-hidden img-building">
-                                    <img src="https://source.unsplash.com/320x250?building+2"
-                                         class="card-img-top img-fluid" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-secondary">
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        4.1/5 (13 Reviews)
-                                    </p>
-                                    <h5 class="card-title fw-bold">101</h5>
-                                    <p class="card-text">
-                                        Kawasan, Jl. Mega Kuningan Barat Jl. DR. Ide Anak Agung Gde Agung No.1,
-                                        RT.5/RW.2, Kuningan, Kuningan Tim., Kecamatan Setiabudi, Kota Jakarta Selatan,
-                                        Daerah Khusus Ibukota Jakarta 12950
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card card-building bg-white">
-                            <a href="" class="text-decoration-none text-dark">
-                                <div class="overflow-hidden img-building">
-                                    <img src="https://source.unsplash.com/320x250?building+3"
-                                         class="card-img-top img-fluid" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-secondary">
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        4.1/5 (13 Reviews)
-                                    </p>
-                                    <h5 class="card-title fw-bold">Yafurni</h5>
-                                    <p class="card-text">
-                                        Jl. Iskandar Muda No.7, Petisah Hulu, Kec. Medan Baru, Kota Medan, Sumatera
-                                        Utara 20153
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="card card-building bg-white">
-                            <a href="" class="text-decoration-none text-dark">
-                                <div class="overflow-hidden img-building">
-                                    <img src="https://source.unsplash.com/320x250?building+4"
-                                         class="card-img-top img-fluid" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-secondary">
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        4.1/5 (13 Reviews)
-                                    </p>
-                                    <h5 class="card-title fw-bold">Kalingga</h5>
-                                    <p class="card-text">
-                                        Jl. Kalingga No.14, Petisah Tengah, Kec. Medan Petisah, Kota Medan, Sumatera
-                                        Utara 20112
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    {{--                    <div class="col">--}}
-                    {{--                        <div class="card card-building bg-white">--}}
-                    {{--                            <a href="" class="text-decoration-none text-dark">--}}
-                    {{--                                <div class="overflow-hidden img-building">--}}
-                    {{--                                    <img src="https://source.unsplash.com/320x250?building+5"--}}
-                    {{--                                         class="card-img-top img-fluid" alt="...">--}}
-                    {{--                                </div>--}}
-                    {{--                                <div class="card-body">--}}
-                    {{--                                    <p class="text-secondary">--}}
-                    {{--                                        <i class="bi bi-star-fill text-warning"></i>--}}
-                    {{--                                        4.1/5 (13 Reviews)--}}
-                    {{--                                    </p>--}}
-                    {{--                                    <h5 class="card-title fw-bold">Spasi</h5>--}}
-                    {{--                                    <p class="card-text">--}}
-                    {{--                                        Komplek Multatuli Indah, Jl. Multatuli No.30-31, Hamdan, Kec. Medan Maimun, Kota--}}
-                    {{--                                        Medan, Sumatera Utara 20212--}}
-                    {{--                                    </p>--}}
-                    {{--                                </div>--}}
-                    {{--                            </a>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
+                    @endforeach
                 </div>
             </div>
             <div class="col-6 px-0">
@@ -152,23 +66,7 @@
             </div>
         </div>
 
-        <nav>
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        {{ $buildings->links('') }}
     </div>
 @endsection
 

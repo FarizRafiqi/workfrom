@@ -14,11 +14,11 @@
     <link href="https://fonts.bunny.net/css?family=Inter" rel="stylesheet">
 
     <!-- Scripts -->
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
-    <script src="{{ asset('build/assets/app-c75e0372.js') }}" defer></script>
+     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+{{--    <script src="{{ asset('build/assets/app-c75e0372.js') }}" defer></script>--}}
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('build/assets/app-faeac595.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('build/assets/app-faeac595.css') }}">--}}
     @stack('styles')
 </head>
 <body>
@@ -39,29 +39,34 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('buildings') ? 'active text-decoration-underline' : '' }}"
+                        <a class="nav-link {{ Route::is('buildings.*') ? 'active text-decoration-underline' : '' }}"
                            href="{{ route('buildings.index') }}">Building</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('rooms') ? 'active text-decoration-underline' : '' }}"
+                        <a class="nav-link {{ Route::is('rooms.*') ? 'active text-decoration-underline' : '' }}"
                            href="{{ route('rooms.index') }}">Room</a>
                     </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
+                    <button class="btn me-4">
+                        <i class="bi bi-telephone-fill me-2"></i>
+                        <span>Contact Us</span>
+                    </button>
+
                     <!-- Authentication Links -->
                     @guest
                         @if(!Route::is(['login', 'register']))
                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <li class="nav-item me-2">
+                                    <a class="btn btn-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="btn btn-outline-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @endif

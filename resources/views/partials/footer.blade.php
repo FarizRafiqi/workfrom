@@ -73,6 +73,6 @@
     </section>
 
     <div class="text-center p-4 text-white">
-        © {{ date('Y') }} Copyright Workfrom.id
+        © {{ date('Y') }} Copyright Workfrom.my.id
     </div>
 </footer>

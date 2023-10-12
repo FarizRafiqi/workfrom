@@ -17,8 +17,9 @@ return new class extends Migration
             $table->foreignIdFor(Order::class)->constrained()->cascadeOnDelete();
             $table->dateTime('payment_date');
             $table->enum('payment_method', ['transfer', 'BNI', 'BRI', 'BCA', 'Mandiri', 'OVO', 'GoPay', 'Dana']);
-            $table->string('receipt_image');
+            $table->string('receipt_image')->nullable();
             $table->decimal('total_price', 10, 0);
+            $table->enum('status', ['pending', 'success', 'failed']);
             $table->timestamps();
         });
     }

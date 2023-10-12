@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Room;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class RoomImageFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'room_id' => Room::inRandomOrder()->first()->id,
+            'image' => $this->faker->imageUrl(640, 480)
         ];
     }
 }

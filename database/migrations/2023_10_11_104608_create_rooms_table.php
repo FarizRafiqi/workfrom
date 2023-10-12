@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignIdFor(Building::class)
                     ->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->string('use_case');
             $table->decimal('size', 10);
             $table->integer('capacity');
             $table->decimal('price', 10, 0);
@@ -25,6 +24,7 @@ return new class extends Migration
             $table->string('lng');
             $table->string('description');
             $table->json('opening_hours');
+            $table->string('address');
             $table->timestamps();
         });
     }

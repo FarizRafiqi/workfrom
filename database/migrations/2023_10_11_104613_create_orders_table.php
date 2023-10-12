@@ -18,10 +18,13 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->constrained()->restrictOnDelete();
             $table->foreignIdFor(Room::class)->constrained()->restrictOnDelete();
             $table->date('visit_date');
-            $table->time('visit_time');
+            $table->time('time_start')->nullable();
+            $table->time('time_end')->nullable();
             $table->dateTime('order_date');
-            $table->integer('duration'); // 1 - 24++ bulan
-            $table->text('notes');
+            $table->integer('duration')->nullable(); // 1 - 24++ bulan
+            $table->decimal('total_price', 10, 0);
+            $table->text('note')->nullable();
+            $table->enum('status', ['pending', 'success', 'failed']);
             $table->timestamps();
         });
     }

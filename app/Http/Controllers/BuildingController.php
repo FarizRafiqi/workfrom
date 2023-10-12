@@ -13,9 +13,8 @@ class BuildingController extends Controller
      */
     public function index()
     {
-        return view('pages.customer.buildings.index', [
-            'buildings' => Building::all(),
-        ]);
+        $buildings = Building::paginate(4);
+        return view('pages.customer.buildings.index', compact('buildings'));
     }
 
     /**
