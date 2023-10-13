@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="bg-dark px-7 pt-7 pb-24 text-white position-relative">
+    <section class="bg-dark px-2 px-md-7 pt-7 pb-24 text-white position-relative">
         <h5 class="text-center fw-bold text-uppercase">Office & co working space</h5>
         <h1 class="text-center fw-bolder">
             Find a Workspace
@@ -30,7 +30,7 @@
              class="img-fluid position-absolute top-40 bottom-50 start-0 end-0 z-0 opacity-50">
     </section>
 
-    <section class="bg-white py-5">
+    <section class="bg-white px-2 px-md-0 py-5">
         <div class="d-flex justify-content-center">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item me-4" role="presentation">
@@ -143,13 +143,13 @@
         </div>
     </section>
 
-    <section class="bg-dark px-7 py-5 text-white">
+    <section class="bg-dark px-2 px-md-7 py-5 text-white">
         <div>
             <h2 class="fw-bold text-center mt-5 mb-4">Adjust To Your <br> Needs</h2>
             <div class="container pt-5">
                 <div class="row justify-content-center">
                     <div class="col-md-10">
-                        <div class="row">
+                        <div class="row align-items-center">
                             <div class="col-md-4">
                                 <div class="accordion" id="accordionExample">
 
@@ -162,7 +162,7 @@
                                                 Event
                                             </button>
                                         </h2>
-                                        <div id="event" class="accordion-collapse collapse show"
+                                        <div id="event" class="accordion-collapse collapse"
                                              data-bs-parent="#accordionExample">
                                             <div class="accordion-body text-white">
                                                 <p>
@@ -170,7 +170,7 @@
                                                     akses lebih mudah.
                                                 </p>
 
-                                                <button class="btn btn-success text-white mt-2 w-50">
+                                                <button class="btn btn-success text-white mt-2 px-md-5">
                                                     Book Now
                                                 </button>
                                             </div>
@@ -193,7 +193,7 @@
                                                     yang efektif dan produktif
                                                 </p>
 
-                                                <button class="btn btn-success text-white mt-2 w-50">
+                                                <button class="btn btn-success text-white mt-2 px-md-5">
                                                     Book Now
                                                 </button>
                                             </div>
@@ -216,7 +216,7 @@
                                                     untuk sesi pemotretan
                                                 </p>
 
-                                                <button class="btn btn-success text-white mt-2 w-50">
+                                                <button class="btn btn-success text-white mt-2 px-md-5">
                                                     Book Now
                                                 </button>
                                             </div>
@@ -240,7 +240,7 @@
                                                     profesional.
                                                 </p>
 
-                                                <button class="btn btn-success text-white mt-2 w-50">
+                                                <button class="btn btn-success text-white mt-2 px-md-5">
                                                     Book Now
                                                 </button>
                                             </div>
@@ -264,64 +264,34 @@
             <h2 class="fw-bold text-center mt-5 mb-4">Choose Your Nearest <br> Space</h2>
 
             <div class="container pt-5">
-                <div class="row justify-content-center">
-                    <div class="col-md-4">
-                        <div class="card card-nearest-space mx-auto">
-                            <div class="overflow-hidden">
-                                <img src="{{ asset('img/ns-1.png') }}" class="card-img-top img-fluid" alt="The 101">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title fw-bold">The 101</h5>
-                                <p><i class="bi bi-geo-alt-fill"></i> Jakarta Selatan, DKI Jakarta</p>
-                                <p class="card-text">
-                                    Kawasan, Jl. Mega Kuningan Barat Jl. DR. Ide Anak Agung Gde Agung No.1, RT.5/RW.2,
-                                    Kuningan, Kuningan Tim., Kecamatan Setiabudi, 12950
-                                </p>
-                                <a href="#" class="btn btn-success text-white w-100">More Info</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-nearest-space mx-auto">
-                            <div class="overflow-hidden">
-                                <img src="{{ asset('img/ns-2.png') }}" class="card-img-top img-fluid" alt="Clapham">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title fw-bold">Clapham</h5>
-                                <p><i class="bi bi-geo-alt-fill"></i> Medan, Sumatra Utara</p>
-                                <p class="card-text">
-                                    Komp. Ruko Centre Point Medan Jl. Timor Blok G No. III/IV 2nd Floor, Gang Buntu,
-                                    Medan Timur, 20231
-                                </p>
-                                <a href="#" class="btn btn-success text-white w-100">More Info</a>
+                <div class="row gy-4 justify-content-center">
+                    @foreach($buildings as $building)
+                        <div class="col-md-4">
+                            <div class="card card-nearest-space mx-auto">
+                                <div class="overflow-hidden">
+                                    <img src="{{ asset('img/' . optional($building->images[0])->image) }}" class="card-img-top img-fluid" alt="The 101">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">{{ $building->name }}</h5>
+                                    <p><i class="bi bi-geo-alt-fill"></i> Jakarta Selatan, DKI Jakarta</p>
+                                    <p class="card-text">
+                                        {{ $building->address }}
+                                    </p>
+                                    <a href="{{ route('buildings.show', $building) }}" class="btn btn-success text-white w-100">More Info</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-nearest-space mx-auto">
-                            <div class="overflow-hidden">
-                                <img src="{{ asset('img/ns-3.png') }}" class="card-img-top img-fluid" alt="Spasi">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title fw-bold">Spasi</h5>
-                                <p><i class="bi bi-geo-alt-fill"></i> Medan, Sumatra Utara</p>
-                                <p class="card-text">
-                                    Komplek Multatuli Indah, Jl. Multatuli No.30-31, Hamdan, Kec. Medan Maimun, 20212
-                                </p>
-                                <a href="#" class="btn btn-success text-white w-100">More Info</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-white px-7 py-5">
+    <section class="bg-white px-2 px-md-7 py-5">
         <div class="container">
-            <div class="row">
+            <div class="row gy-4">
                 <div class="col">
-                    <h1 class="fw-bold">Frequently Asked Questions</h1>
+                    <h1 class="fw-bold text-center text-md-start">Frequently Asked Questions</h1>
                 </div>
                 <div class="col">
                     <div class="accordion text-dark" id="accordionExample">

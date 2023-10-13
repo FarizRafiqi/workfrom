@@ -17,14 +17,15 @@ return new class extends Migration
             $table->foreignIdFor(Building::class)
                     ->constrained()->cascadeOnDelete();
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->decimal('size', 10);
             $table->integer('capacity');
             $table->decimal('price', 10, 0);
-            $table->string('lat');
-            $table->string('lng');
-            $table->string('description');
-            $table->json('opening_hours');
-            $table->string('address');
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
+            $table->string('description')->nullable();
+            $table->json('opening_hours')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }

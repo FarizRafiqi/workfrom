@@ -8,10 +8,15 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
-@import 'bootstrap-select/dist/css/bootstrap-select.css';
+//@import 'bootstrap-select/dist/css/bootstrap-select.css';
 
-.card-nearest-space {
-    width: 18rem;
+// Select2
+@import "select2/src/scss/core";
+
+@media only screen and (min-width: 768px) {
+    .card-nearest-space {
+        width: 18rem;
+    }
 }
 
 .card-nearest-space > div:first-child, .img-building {
@@ -21,4 +26,8 @@
 // Style halaman building
 .card-building {
     width: 20rem;
+}
+
+.img-detail-building {
+    height: 300px;
 }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Cari Gedung')
+@section('title', 'Cari Kamar')
 
 @push('styles')
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 px-0 overflow-y-auto overflow-x-hidden vh-100">
-                <livewire:show-buildings :buildings="$buildings"/>
+                <livewire:show-rooms :rooms="$rooms"/>
             </div>
             <div class="col-md-6 px-0">
                 <div class="ui vertical stripe segment">
@@ -22,7 +22,7 @@
         </div>
 
         <div class="mt-4">
-            {{ $buildings->links() }}
+            {{ $rooms->links() }}
         </div>
     </div>
 @endsection

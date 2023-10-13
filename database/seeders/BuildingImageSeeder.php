@@ -13,6 +13,21 @@ class BuildingImageSeeder extends Seeder
      */
     public function run(): void
     {
-        BuildingImage::factory()->count(20)->create();
+        BuildingImage::insert([
+            [
+                'building_id' => 1,
+                'image' => 'ns-1.png',
+            ],
+            [
+                'building_id' => 2,
+                'image' => 'ns-2.png',
+            ],
+            [
+                'building_id' => 3,
+                'image' => 'ns-3.png',
+            ]
+        ]);
+
+        BuildingImage::factory()->count(17)->create();
     }
 }

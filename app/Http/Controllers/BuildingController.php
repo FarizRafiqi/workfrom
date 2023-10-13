@@ -38,7 +38,7 @@ class BuildingController extends Controller
      */
     public function show(Building $building)
     {
-        //
+        return view('pages.customer.buildings.show', compact('building'));
     }
 
     /**

@@ -13,7 +13,8 @@ class RoomController extends Controller
      */
     public function index()
     {
-        //
+        $rooms = Room::with(['building', 'useCases'])->paginate(4);
+        return view('pages.customer.rooms.index', compact('rooms'));
     }
 
     /**
@@ -37,7 +38,7 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        //
+        return view('pages.customer.rooms.show', compact('room'));
     }
 
     /**

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Building;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 use Spatie\OpeningHours\OpeningHours;
 
 /**
@@ -31,9 +32,13 @@ class RoomFactory extends Factory
             ],
         ]);
 
+        $name = $this->faker->words(3, true);
+        $slug = Str::slug($name);
+
         return [
             'building_id' => Building::inRandomOrder()->first()->id,
-            'name' => $this->faker->words(3, true),
+            'name' => $name,
+            'slug' => $slug,
             'size' => $this->faker->numberBetween(1, 20) * 5, // m2
             'capacity' => $this->faker->numberBetween(1, 20) * 5,
             'price' => $this->faker->numberBetween(1, 20) * 50000,

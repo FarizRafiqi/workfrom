@@ -24,27 +24,27 @@ class AmenitySeeder extends Seeder
             ],
             [
                 'name' => 'Events & Meeting Rooms',
-                'icon' => 'bi bi-calendar-event-fill'
+                'icon' => 'bi bi-calendar-event'
             ],
             [
                 'name' => 'Mail & Package Handling',
-                'icon' => 'bi bi-envelope-fill'
+                'icon' => 'bi bi-envelope'
             ],
             [
                 'name' => 'Printing Services',
-                'icon' => 'bi bi-printer-fill'
+                'icon' => 'bi bi-printer'
             ],
             [
                 'name' => 'Access to Common Areas',
-                'icon' => 'bi pin-map-fill'
+                'icon' => 'bi pin-map'
             ],
             [
                 'name' => 'Walk in Pantries',
-                'icon' => 'bi bi-fridge-fill'
+                'icon' => 'fas fa-utensils'
             ],
             [
                 'name' => 'Mineral Water, Coffee, & Tea',
-                'icon' => 'bi bi-cup-fill'
+                'icon' => 'bi bi-cup'
             ]
         ]);
     }

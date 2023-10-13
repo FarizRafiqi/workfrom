@@ -13,6 +13,45 @@ class FacilitySeeder extends Seeder
      */
     public function run(): void
     {
-        Facility::factory()->count(20)->create();
+        Facility::insert([
+            [
+                'name' => 'Train',
+                'icon' => 'bi bi-train-front',
+            ],
+            [
+                'name' => 'Hospital',
+                'icon' => 'bi bi-hospital',
+            ],
+            [
+                'name' => 'Gym',
+                'icon' => 'fas fa-dumbbell',
+            ],
+            [
+                'name' => 'Taxi',
+                'icon' => 'bi bi-taxi-front',
+            ],
+            [
+                'name' => 'Mall',
+                'icon' => 'bi bi-shop',
+            ],
+            [
+                'name' => 'Resto',
+                'icon' => 'fa fa-utensils',
+            ],
+            [
+                'name' => 'Hotel',
+                'icon' => 'fa fa-hotel',
+            ],
+            [
+                'name' => 'Bar',
+                'icon' => 'fas fa-glass-cheers',
+            ],
+            [
+                'name' => 'Cafe',
+                'icon' => 'bi bi-cup',
+            ],
+        ]);
+
+        // Facility::factory()->count(20)->create();
     }
 }

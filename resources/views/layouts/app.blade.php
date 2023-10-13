@@ -14,16 +14,17 @@
     <link href="https://fonts.bunny.net/css?family=Inter" rel="stylesheet">
 
     <!-- Scripts -->
-     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-{{--    <script src="{{ asset('build/assets/app-c75e0372.js') }}" defer></script>--}}
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @stack('addon-scripts')
+    {{--    <script src="{{ asset('build/assets/app-c75e0372.js') }}" defer></script>--}}
 
     <!-- Styles -->
-{{--    <link rel="stylesheet" href="{{ asset('build/assets/app-faeac595.css') }}">--}}
+    {{--    <link rel="stylesheet" href="{{ asset('build/assets/app-faeac595.css') }}">--}}
     @stack('styles')
 </head>
 <body>
-<div id="app" class="bg-white vh-100">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm py-3">
+<div id="app" class="vh-100">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white shadow-sm py-3">
         <div class="container-fluid mx-4">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="{{ asset('img/Logo-WF.png') }}" alt="">
@@ -50,23 +51,26 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
-                    <button class="btn me-4">
-                        <i class="bi bi-telephone-fill me-2"></i>
-                        <span>Contact Us</span>
-                    </button>
+                    <li class="nav-item">
+                        <button class="btn me-md-4 px-0 px-md-4">
+                            <i class="bi bi-telephone-fill me-2 d-none d-md-inline-block"></i>
+                            <span>Contact Us</span>
+                        </button>
+                    </li>
 
                     <!-- Authentication Links -->
                     @guest
                         @if(!Route::is(['login', 'register']))
                             @if (Route::has('login'))
-                                <li class="nav-item me-2">
+                                <li class="nav-item me-2 mb-2 mb-md-0">
                                     <a class="btn btn-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="btn btn-outline-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="btn btn-outline-dark"
+                                       href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @endif
@@ -95,7 +99,7 @@
         </div>
     </nav>
 
-    <main>
+    <main style="padding-top: 4.5rem;">
         @yield('content')
     </main>
     @include('partials.footer')
