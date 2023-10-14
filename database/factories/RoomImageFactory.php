@@ -19,7 +19,7 @@ class RoomImageFactory extends Factory
     {
         return [
             'room_id' => Room::inRandomOrder()->first()->id,
-            'image' => $this->faker->imageUrl(640, 480)
+            'image' => 'https://source.unsplash.com/random/640x480/?room,office'
         ];
     }
 }

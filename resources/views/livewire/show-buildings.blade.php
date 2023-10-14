@@ -27,7 +27,7 @@
     </header>
     <div class="row p-4 gx-4 gy-4">
         @foreach($buildings as $building)
-            <div class="col-6" wire:key="{{ $building->id }}">
+            <div class="col-12 col-md-6" wire:key="{{ $building->id }}">
                 <div class="card bg-white">
                     <a href="{{ route('buildings.show', $building->slug) }}"
                        class="text-decoration-none text-dark">

@@ -20,7 +20,7 @@ class RoomUseCaseFactory extends Factory
     {
         return [
             'room_id' => Room::inRandomOrder()->first()->id,
-            'use_case_id' => UseCase::inRandomOrder()->first()->id,
+            'use_case_id' => UseCase::inRandomOrder()->firstWhere('parent_id', '!=', null)->id,
         ];
     }
 }

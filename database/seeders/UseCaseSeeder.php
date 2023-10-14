@@ -88,47 +88,47 @@ class UseCaseSeeder extends Seeder
             ],
             [
                 'name' => 'Board Meeting',
-                'parent_id' => 2,
+                'parent_id' => 18,
             ],
             [
                 'name' => 'Brainstorming',
-                'parent_id' => 2,
+                'parent_id' => 18,
             ],
             [
                 'name' => 'Casting',
-                'parent_id' => 2,
+                'parent_id' => 18,
             ],
             [
                 'name' => 'Client Marketing',
-                'parent_id' => 2,
+                'parent_id' => 18,
             ],
             [
                 'name' => 'Corporate Meeting',
-                'parent_id' => 2,
+                'parent_id' => 18,
             ],
             [
                 'name' => 'Creative Meeting',
-                'parent_id' => 2,
+                'parent_id' => 18,
             ],
             [
                 'name' => 'Discussion',
-                'parent_id' => 2,
+                'parent_id' => 18,
             ],
             [
                 'name' => 'Interview',
-                'parent_id' => 2,
+                'parent_id' => 18,
             ],
             [
                 'name' => 'Off-site Meeting',
-                'parent_id' => 2,
+                'parent_id' => 18,
             ],
             [
                 'name' => 'Sales Meeting',
-                'parent_id' => 2,
+                'parent_id' => 18,
             ],
             [
                 'name' => 'Team Meeting',
-                'parent_id' => 2,
+                'parent_id' => 18,
             ],
             [
                 'name' => 'Photo Shoot',
@@ -136,11 +136,11 @@ class UseCaseSeeder extends Seeder
             ],
             [
                 'name' => 'Wedding Photo Shoot',
-                'parent_id' => 3,
+                'parent_id' => 30,
             ],
             [
                 'name' => 'Product Photo Shoot',
-                'parent_id' => 3,
+                'parent_id' => 30,
             ],
             [
                 'name' => 'Office',
@@ -148,7 +148,7 @@ class UseCaseSeeder extends Seeder
             ],
             [
                 'name' => 'Private Office',
-                'parent_id' => 4,
+                'parent_id' => 33,
             ],
         ]);
     }

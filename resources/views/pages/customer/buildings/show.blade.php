@@ -17,9 +17,9 @@
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
     <script src="{{ asset('vendor/fontawesome/all.js') }}" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
-            integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
-            async></script>
+    {{--    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"--}}
+    {{--            integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"--}}
+    {{--            async></script>--}}
     <script>
         let map = L.map('map').setView([51.505, -0.09], 13);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -36,21 +36,27 @@
                 <li class="breadcrumb-item"><a href="#" class="text-success">Home</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('buildings.index') }}" class="text-success">Building</a>
                 </li>
-                <li class="breadcrumb-item active">{{ $building->name }}</li>
+                <li class="breadcrumb-item active">{{ \Str::title($building->name) }}</li>
             </ol>
         </nav>
 
         <div class="row align-items-center my-4">
-            <div class="col">
-                <h1>{{ $building->name }}</h1>
+            <div class="col-12 col-md-6">
+                <h1>{{ \Str::title($building->name) }}</h1>
             </div>
-            <div class="col text-end">
-                <a href="#" class="btn btn-success text-white px-4 me-2">
-                    Book Now
-                </a>
-                <a href="#" class="btn btn-outline-success px-5">
-                    Chat
-                </a>
+            <div class="col-12 col-md-6">
+                <div class="row gy-3 justify-content-end">
+                    <div class="col-md-3">
+                        <a href="#" class="btn btn-success text-white w-100 me-2">
+                            Book Now
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="btn btn-outline-success w-100">
+                            Chat
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 

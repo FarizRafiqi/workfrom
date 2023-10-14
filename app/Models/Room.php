@@ -16,7 +16,10 @@ class Room extends Model
 
     public function useCases()
     {
-        return $this->hasMany(RoomUseCase::class);
+        // buat kondisi agar use case yang diambil melalui tabel RoomUseCase diurutkan berdasarkan parent_id yang ada di tabel UseCase
+        // jika parent_id null maka muncul pertama, jika tidak maka muncul setelah parent_id null
+        return $this->belongsToMany(UseCase::class)
+            ->using(RoomUseCase::class);
     }
 
     public function images()
