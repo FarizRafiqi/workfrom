@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-12 text-center my-5">
-                <img src="{{ asset('img/Logo-WF.png') }}" alt="logo">
-            </div>
             <div class="col-md-6">
                 <div class="card bg-white">
                     <div class="card-body">

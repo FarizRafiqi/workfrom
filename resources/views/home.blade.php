@@ -13,17 +13,21 @@
             Meeting Rooms, Office, and Co Working Space Available.
         </p>
         <div class="container px-md-10 px-xl-28 position-relative z-3">
-            <div class="input-group input-group-lg mb-3">
-                <input type="text" class="form-control" placeholder="Input Location..."
-                       aria-label="Recipient's username" aria-describedby="button-search">
-                <button class="btn btn-success text-white" type="button" id="button-search">
-                    <i class="bi bi-search"></i>
-                    Search
-                </button>
-            </div>
-            <button type="button" class="btn btn-success text-white btn-lg w-100 mt-4 z-3 position-relative">
+            <form action="{{ route('buildings.index') }}">
+                <div class="input-group input-group-lg mb-3">
+                    <input type="text" class="form-control" name="search"
+                           placeholder="Building name, location, or city..."
+                           aria-label="search location" aria-describedby="button-search">
+                    <button class="btn btn-success text-white" type="submit" id="button-search">
+                        <i class="bi bi-search"></i>
+                        Search
+                    </button>
+                </div>
+            </form>
+            <a href="{{ route('buildings.index') }}"
+               class="btn btn-success text-white btn-lg w-100 mt-4 z-3 position-relative">
                 See Our Spaces <i class="bi bi-arrow-right"></i>
-            </button>
+            </a>
         </div>
 
         <img src="{{ asset('img/banner-group.png') }}" alt=""
@@ -51,14 +55,14 @@
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-csutomer" role="tabpanel"
                      aria-labelledby="pills-customer-tab" tabindex="0">
-                    <div class="row">
+                    <div class="row gx-md-5">
                         <div class="col-md-6">
                             <img src="{{ asset('img/as-customer.png') }}" class="img-fluid" alt="">
                         </div>
 
                         <div class="col-md-5">
                             <h2 class="fw-bold mt-4 mt-md-0">The Best Space Available For You</h2>
-                            <h6>
+                            <p>
                                 Lorem ipsum dolor sit amet,
                                 consectetur adipiscing
                                 elit. Integer in efficitur nulla, sed egestas nulla. Curabitur rhoncus, arcu at
@@ -78,7 +82,7 @@
                                 aliquam gravida. Sed consectetur vestibulum leo a vulputate. In malesuada velit at
                                 mollis dapibus.
                                 Nullam id gravida nulla.
-                            </h6>
+                            </p>
 
                             <a href="#" class="btn btn-success btn-lg text-white w-100 mt-2">Book Now</a>
                         </div>
@@ -86,14 +90,14 @@
                 </div>
                 <div class="tab-pane fade" id="pills-owner" role="tabpanel" aria-labelledby="pills-owner-tab"
                      tabindex="0">
-                    <div class="row">
-                        <div class="col-6">
+                    <div class="row gx-md-5">
+                        <div class="col-md-6">
                             <img src="{{ asset('img/as-owner.png') }}" class="img-fluid" alt="">
                         </div>
 
-                        <div class="col-5">
-                            <h2 class="fw-bold">Improve Office Tower Tenants with Us</h2>
-                            <h6>
+                        <div class="col-md-5">
+                            <h2 class="fw-bold mt-4 mt-md-0">Improve Office Tower Tenants with Us</h2>
+                            <p>
                                 Lorem ipsum dolor sit amet,
                                 consectetur adipiscing
                                 elit. Integer in efficitur nulla, sed egestas nulla. Curabitur rhoncus, arcu at
@@ -113,7 +117,7 @@
                                 aliquam gravida. Sed consectetur vestibulum leo a vulputate. In malesuada velit at
                                 mollis dapibus.
                                 Nullam id gravida nulla.
-                            </h6>
+                            </p>
 
                             <a href="#" class="btn btn-success btn-lg text-white w-100 mt-2">Get Started Now</a>
                         </div>
@@ -151,11 +155,11 @@
                     <div class="col-md-10">
                         <div class="row align-items-center">
                             <div class="col-md-4">
-                                <div class="accordion" id="accordionExample">
+                                <div class="accordion" id="useCase">
 
                                     <div class="accordion-item rounded-0 mb-4">
                                         <h2 class="accordion-header">
-                                            <button class="accordion-button bg-dark text-white" type="button"
+                                            <button class="accordion-button bg-dark text-white collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#event"
                                                     aria-expanded="true"
                                                     aria-controls="collapseOne">
@@ -163,11 +167,11 @@
                                             </button>
                                         </h2>
                                         <div id="event" class="accordion-collapse collapse"
-                                             data-bs-parent="#accordionExample">
+                                             data-bs-parent="#useCase">
                                             <div class="accordion-body text-white">
                                                 <p>
-                                                    Rayakan perayaan dan acara terbaik dengan tempat pilihan terbaik dan
-                                                    akses lebih mudah.
+                                                    Celebrate the best celebrations and events with the best choice of
+                                                    venues and easier access.
                                                 </p>
 
                                                 <button class="btn btn-success text-white mt-2 px-md-5">
@@ -186,11 +190,11 @@
                                             </button>
                                         </h2>
                                         <div id="meeting" class="accordion-collapse collapse"
-                                             data-bs-parent="#accordionExample">
+                                             data-bs-parent="#useCase">
                                             <div class="accordion-body text-white">
                                                 <p>
-                                                    Ruang rapat nyaman, menciptakan suasana ideal untuk pertemuan bisnis
-                                                    yang efektif dan produktif
+                                                    Meeting rooms are comfortable, creating an ideal atmosphere for
+                                                    effective and productive business meetings
                                                 </p>
 
                                                 <button class="btn btn-success text-white mt-2 px-md-5">
@@ -209,11 +213,11 @@
                                             </button>
                                         </h2>
                                         <div id="photoShoot" class="accordion-collapse collapse"
-                                             data-bs-parent="#accordionExample">
+                                             data-bs-parent="#useCase">
                                             <div class="accordion-body text-white">
                                                 <p>
-                                                    Ruang foto dengan design profesional, memberikan pengalaman berkesan
-                                                    untuk sesi pemotretan
+                                                    Professionally designed photo room, providing a memorable experience
+                                                    for photo shoot sessions
                                                 </p>
 
                                                 <button class="btn btn-success text-white mt-2 px-md-5">
@@ -232,12 +236,11 @@
                                             </button>
                                         </h2>
                                         <div id="videoShoot" class="accordion-collapse collapse"
-                                             data-bs-parent="#accordionExample">
+                                             data-bs-parent="#useCase">
                                             <div class="accordion-body text-white">
                                                 <p>
-                                                    Ruang video shoot lengkap untuk menciptakan hasil video yang memukau
-                                                    dan
-                                                    profesional.
+                                                    Complete video shoot room to create stunning and professional video
+                                                    results.
                                                 </p>
 
                                                 <button class="btn btn-success text-white mt-2 px-md-5">
@@ -269,7 +272,8 @@
                         <div class="col-md-4">
                             <div class="card card-nearest-space mx-auto">
                                 <div class="overflow-hidden">
-                                    <img src="{{ asset('img/' . optional($building->images[0])->image) }}" class="card-img-top img-fluid" alt="The 101">
+                                    <img src="{{ Storage::url($building->images?->first()?->image) }}"
+                                         class="card-img-top img-fluid" alt="The 101">
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold">{{ $building->name }}</h5>
@@ -277,7 +281,8 @@
                                     <p class="card-text">
                                         {{ $building->address }}
                                     </p>
-                                    <a href="{{ route('buildings.show', $building) }}" class="btn btn-success text-white w-100">More Info</a>
+                                    <a href="{{ route('buildings.show', $building) }}"
+                                       class="btn btn-success text-white w-100">More Info</a>
                                 </div>
                             </div>
                         </div>
@@ -294,7 +299,7 @@
                     <h1 class="fw-bold text-center text-md-start">Frequently Asked Questions</h1>
                 </div>
                 <div class="col">
-                    <div class="accordion text-dark" id="accordionExample">
+                    <div class="accordion text-dark" id="faq">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button bg-whtie" type="button" data-bs-toggle="collapse"
@@ -305,7 +310,7 @@
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show"
-                                 data-bs-parent="#accordionExample">
+                                 data-bs-parent="#faq">
                                 <div class="accordion-body">
                                     <p>
                                         Workfrom merupakan sebuah platform yang menghubungkan penyewa dengan ruang
@@ -325,7 +330,7 @@
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse"
-                                 data-bs-parent="#accordionExample">
+                                 data-bs-parent="#faq">
                                 <div class="accordion-body">
                                     <p>
                                         Fasilitas mencakup akses internet berkecepatan tinggi, minuman gratis, area
@@ -345,7 +350,7 @@
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse"
-                                 data-bs-parent="#accordionExample">
+                                 data-bs-parent="#faq">
                                 <div class="accordion-body">
                                     <p>
                                         Private Office tutup selama akhir pekan dan hari libur. Tetapi kedepannya bisa

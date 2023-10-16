@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -54,6 +55,8 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone_number' => ['required', 'numeric', 'min:6'],
             'password' => ['required', 'string', 'min:8'],
+            'register_as' => ['required', 'string', 'in:customer,owner'],
+            'is_agree_tos' => ['required'],
         ]);
     }
 
@@ -65,11 +68,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $roleId = $data['register_as'];
+        if ($roleId == 'customer') {
+            $roleId = Role::firstWhere('name', 'customer')->id;
+        } else {
+            $roleId = Role::firstWhere('name', 'owner')->id;
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'phone_number' => $data['phone_number'],
+            'role_id' => $roleId,
         ]);
     }
 }

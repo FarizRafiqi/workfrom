@@ -14,6 +14,7 @@ class ShowBuildings extends Component
     public function render()
     {
         $buildings = Building::where('name', 'like', '%' . $this->search . '%')
+                            ->orWhere('address', 'like', '%' . $this->search . '%')
                             ->paginate(4);
 
         return view('livewire.show-buildings', compact('buildings'));

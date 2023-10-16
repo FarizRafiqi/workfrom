@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Building;
 use App\Http\Requests\StoreBuildingRequest;
 use App\Http\Requests\UpdateBuildingRequest;
+use Illuminate\Http\Request;
 
 class BuildingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $buildings = Building::paginate(4);
+        $buildings = Building::paginate(4)->appends($request->query());
         return view('pages.customer.buildings.index', compact('buildings'));
     }
 
